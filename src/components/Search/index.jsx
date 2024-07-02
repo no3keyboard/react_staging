@@ -6,12 +6,16 @@ export default class Search extends Component {
   search = () => {
     //连续解构赋值 + 重命名
     const {searchWord:{value}} = this
+    //发送请求前通知App更新状态
+    this.props.updateAppState({isFirst:false,isLoading:true})
     //发送网络请求
     axios.get(`https://api.github.com/search/users?q=${value}`).then(
         response => {
-            this.props.saveUsers(response.data.items)
+          this.props.updateAppState({isLoading:false,users:response.data.items})
         },
-        error => {console.log('失败 :>> ', error);}
+        error => {
+          this.props.updateAppState({isLoading:false,err:error.message})//注意要有message
+        }
     )
   }
     

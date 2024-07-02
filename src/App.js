@@ -7,17 +7,22 @@ import List from "./components/List";
 //创建并暴露App组件
 export default class App extends React.Component{
 
-  state = {users:[]}//初始化状态
+  state = {
+    users:[],
+    isFirst:true,
+    isLoading:false,
+    err:''
+  }//初始化状态
 
-  saveUsers = (users)=>{
-    this.setState({users})
+  updateAppState = (stateObj)=>{
+    this.setState(stateObj)
   }
 
   render(){
     return (
       <div className="container">
-        <Search saveUsers = {this.saveUsers}/>
-        <List users = {this.state.users}/>
+        <Search updateAppState = {this.updateAppState}/>
+        <List {...this.state}/>
       </div>
     )
   }
