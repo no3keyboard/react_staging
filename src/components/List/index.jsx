@@ -9,7 +9,7 @@ export default class List extends Component {
         {
           isFirst ? <h2>欢迎使用，输入关键字搜索</h2> :
           isLoading ? <h2>Loading......</h2> :
-          err ? <h2 style={{color:red}}>{err}</h2> :
+          err ? <h2 style={{color:'red'}}>{err}</h2> :
           users.map((userObj)=>{
             return(
               <div key={userObj.id}  className="card">

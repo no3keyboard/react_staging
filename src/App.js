@@ -1,6 +1,5 @@
 //创建"外壳"组件App
 import React from "react";
-import './App.css'
 import Search from "./components/Search";
 import List from "./components/List";
 
