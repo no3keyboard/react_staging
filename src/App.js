@@ -1,10 +1,7 @@
 // 创建"外壳"组件App
 import React from "react";
 import { BrowserRouter as Router, NavLink, Routes, Route, Navigate, useRoutes } from 'react-router-dom';
-import Home from "./pages/Home";
-import About from "./pages/About";
 import routes from "./routes";
-
 // 创建 RoutesWrapper 组件
 function RoutesWrapper() {
   const element = useRoutes(routes);
